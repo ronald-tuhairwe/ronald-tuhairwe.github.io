@@ -36,3 +36,4 @@ function cpd(a, r, n){
    return (a*(Math.pow((1+((r/100)/12)),(12*n))));
 }
 //console.log(cpd());
+//
