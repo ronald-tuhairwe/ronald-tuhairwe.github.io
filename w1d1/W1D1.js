@@ -1,3 +1,5 @@
+"use strict";
+/* eslint-disable */
 //qn.1
 function comm(x,s){
 if(s=="y"){ 
@@ -36,7 +38,7 @@ function num1(){
 }
 num1();
 
-qn.4(ii)
+//qn.4(ii)
 function num2(){
     let str="";
     for (let i = 1; i < 6; i++) {

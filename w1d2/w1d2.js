@@ -1,3 +1,5 @@
+"use strict";
+/* eslint-disable */
 //*************qn.1************
 // function comm(x, bln){
 //     if(bln==true){ 
