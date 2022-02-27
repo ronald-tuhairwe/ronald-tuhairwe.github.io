@@ -4,11 +4,11 @@
 /* You need the assert and function name declarations to test in node.  
 Comment these out when you send it to the browser with the index.html mocha setup page.
 */
-const assert = require("assert");  //always need this with node
-const myMethods = require("./w1d5.js");  //with node need the name of your file with your functions here
-const double= myMethods.double;  //do this for all of the functions used in the Mocha tests
-const myMap = myMethods.myMap;
-const times100 = myMethods.times100;
+// const assert = require("assert");  //always need this with node
+// const myMethods = require("./fctnExp.js");  //with node need the name of your file with your functions here
+// const double= myMethods.double;  //do this for all of the functions used in the Mocha tests
+// const myMap = myMethods.myMap;
+// const times100 = myMethods.times100;
 
 
 
@@ -57,9 +57,9 @@ describe("times100", function () {
     describe("myMap", function () {
         const testArray = [-10, 0, 10, 20];
         it("tests myMap on triples anonymous function", function () {
-            assert.deepStrictEqual(myMap(testArray /* YOUR CODE HERE */), [-30, 0, 30, 60]);
+            assert.deepStrictEqual(myMap(testArray, function(num){ return 3*num;}), [-30, 0, 30, 60]);
         });
         it("tests myMap on triples arrow function", function () {
-            assert.deepStrictEqual(myMap(testArray /* YOUR CODE HERE */), [-30, 0, 30, 60]);
+            assert.deepStrictEqual(myMap(testArray, (num) => (3*num )  ), [-30, 0, 30, 60]);
         });
     });
