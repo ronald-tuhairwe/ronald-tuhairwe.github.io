@@ -75,13 +75,13 @@
 
 function sum(){
     //let str= +prompt("enter integers");
-    let str=102;
+    let str=112;
     let sum=0;
     let prdt=1;
     
     while(str/10 >0){
            
-   sum = sum+(str % 10);
+   sum +=(str % 10);
    prdt*=(str % 10);
    str=Math.floor(str/10);
     }
