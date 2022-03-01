@@ -1,7 +1,7 @@
 "use strict";
 /* eslint-disable*/
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-module.exports = {findTitles }; //add all of your function names here that you need for the node mocha tests
+//module.exports = {findTitles }; //add all of your function names here that you need for the node mocha tests
 
 
 let library = [
@@ -31,7 +31,7 @@ function showTitles() {
  * Event handler to display library authors sorted alphabetically
  * @returns {undefined}
  */
- function showAuthor() {
+ function showAuthors() {
 
 
     const authors = findAuthors();
@@ -49,7 +49,7 @@ function showTitles() {
  * Event handler to display library ids sorted alphabetically
  * @returns {undefined}
  */
- function showids() {
+ function showIds() {
 
 
     const ids = findIds();
@@ -100,7 +100,7 @@ function findAuthors() {
     for( let elem of library){
         authors.push(elem.author);
     }
-    // implement this and other functions
+    
     return authors;
 }
 
@@ -111,7 +111,7 @@ function findIds() {
     for( let elem of library){
         ids.push(elem.libraryID);
     }
-    // implement this and other functions
+    
     return ids;
 }
 
