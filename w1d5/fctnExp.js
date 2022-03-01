@@ -1,7 +1,6 @@
 "use strict";
 
 
-module.exports = { double, times100, myMap }
 
 //******************Qn.1*************/
 
@@ -20,7 +19,7 @@ module.exports = { double, times100, myMap }
 
  //******************Qn.2*************/
 
- //let times100 =( num) => 100*num;
+ const times100 =( num) => (100*num);
 
  
 /**
@@ -28,11 +27,13 @@ module.exports = { double, times100, myMap }
  * @param {int} num the first number; 
  * @returns { int } The number by 100;
  */
- function times100 ( num) {
-  return 100*num;
-}
+//  function times100 ( num) {
+//   return 100*num;
+// }
 
- times100();
+
+
+ console.log(times100(20));
  
 
 
@@ -65,3 +66,38 @@ module.exports = { double, times100, myMap }
  // using arrow Expression;
 
 //       myMap( arr, () =>( arr.map ( num => 3*num) ) ); 
+
+
+
+ 
+
+ const stud1 = {studId : 101,ans: [1,2,3] };
+ const stud2 = {studId : 101,ans: [1,2,4] };
+ const stud3 = {studId : 101,ans: [1,2,5] };
+
+console.log(stud1);
+
+
+
+module.exports = { double, times100, myMap };
+
+/* eslint-disable */
+
+let fact77 =[ 1,7, 11,77]
+
+
+function isPrime(arr) {
+
+  const prime =[];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 2; j < arr[i]; j++) {
+      if ( arr[i] % j !== 0);  
+    }
+    prime.push(arr[i]);
+  }
+ 
+  return prime;
+}
+
+console.log("*****************");
+console.log(isPrime(fact77));

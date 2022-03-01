@@ -1,8 +1,8 @@
 
 "use strict";
 
-module.exports = { maxOfThree, sum, multiply, findLongestWord, reverseArray,
-     reverseArrayInPlace, generateArray,scoreExams};
+//module.exports = { maxOfThree, sum, multiply, findLongestWord, reverseArray,
+//     reverseArrayInPlace, generateArray,scoreExams};
 ///*****************homework ********** */ 
 
 // ************** Qn.1 *************
