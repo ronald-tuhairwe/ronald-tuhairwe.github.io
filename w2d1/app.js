@@ -83,10 +83,10 @@ function findTitles() {
 function addBook(){
     const title = document.getElementById("title").value; //retrieves the book title from the title textbox
     const author = document.getElementById("author").value;
-    const id = document.getElementById("libids").value;
+    const libraryID = document.getElementById("libids").value;
     //finish the implementation -- get the author, create a book object, and add to the library array
 
-    let book = {title, author, id };
+    let book = {title, author, libraryID };
     library.push( book);
     
     return library;
@@ -125,9 +125,8 @@ function findIds() {
 
     const titles = findTitles();
 
-    titles.join(",").split(" ").sort();
-    const authorsString = authors.join("\n");
+    const titleString = titles.join(" ").toString().split( " ").sort((a,b) => (a.length > b.length)? 1 : -1).join("\n");
 
-    let textArea = document.getElementById("displayArea");
-    textArea.innerHTML = authorsString;
+    let textArea = document.getElementById("displayArea"); 
+    textArea.innerHTML = titleString;
 }
