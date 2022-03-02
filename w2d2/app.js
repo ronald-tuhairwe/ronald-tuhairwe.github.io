@@ -1,6 +1,6 @@
 "use strict";
 
-const { calculator } = require("./calculator");
+//const { calculator } = require("./calculator");
 
 /* eslint-disable*/
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
@@ -31,14 +31,14 @@ function Accumulator( initialValue, increment){
  */
  function Calculator() {
     this.setValues = function (a, b){
-       this.a =a,
-       this.b = b
-    },
+       this.a =a;
+       this.b = b;
+    };
     this.sum = function (){
        return this.a + this.b;
-    },
+    };
     this.mul = function (){
        return this.a * this.b;
-    }
+    };
     //implement this
      }
