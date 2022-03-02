@@ -3,7 +3,9 @@
 const assert = require("assert");  //always need this with node
 const myExports = require("./app.js");  //with node need the name of your file with your functions here
 const findTitles = myExports.findTitles;  //do this for all of the functions used in the Mocha tests
-
+const findAuthors = myExports.findAuthors;
+const findIDs = myExports.findIds;
+const addBook = myExports.addBook;
 
 /* global assert findTitles findAuthors findIDs addBook */
 /*
@@ -32,7 +34,7 @@ describe("library", function () {
 
     it("find titles", function () {
         assert.deepEqual(findTitles(), titles);
-    });
+    });     
 
     it("find authors", function () {
         assert.deepEqual(findAuthors(), authors);

@@ -1,7 +1,7 @@
 "use strict";
-/* eslint-disable*/
+
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-//module.exports = {findTitles }; //add all of your function names here that you need for the node mocha tests
+//module.exports = {findTitles, findAuthors, findIds, addBook }; //add all of your function names here that you need for the node mocha tests
 
 
 let library = [
@@ -12,7 +12,7 @@ let library = [
 
 /**
  * Event handler to display library titles sorted alphabetically
- * @returns {undefined}
+ *@returns {string} the string of tittles;
  */
 function showTitles() {
 
@@ -29,7 +29,7 @@ function showTitles() {
 
 /**
  * Event handler to display library authors sorted alphabetically
- * @returns {undefined}
+ * @returns {string} the string of authors;
  */
  function showAuthors() {
 
@@ -47,7 +47,7 @@ function showTitles() {
 
 /**
  * Event handler to display library ids sorted alphabetically
- * @returns {undefined}
+ * @returns {string} the string of ids;
  */
  function showIds() {
 
@@ -93,7 +93,10 @@ function addBook(){
 }
 
 
-
+/**
+ * 
+ * @return {object} array holding all authors as elements
+ */
 function findAuthors() {
     let authors = [];
    
@@ -104,7 +107,10 @@ function findAuthors() {
     return authors;
 }
 
-
+/**
+ * 
+ * @return {object} array holding all ids as elements
+ */
 function findIds() {
     let ids = [];
    
@@ -118,14 +124,14 @@ function findIds() {
 
 /**
  * Event handler to display library authors sorted alphabetically
- * @returns {undefined}
+ * @returns {string} the sorted words;
  */
  function scramble() {
 
 
     const titles = findTitles();
 
-    const titleString = titles.join(" ").toString().split( " ").sort((a,b) => (a.length > b.length)? 1 : -1).join("\n");
+    const titleString = titles.join(" ").toString().split(" ").sort((aaa,bbb) => (aaa.length > bbb.length)? 1 : -1).join("\n");
 
     let textArea = document.getElementById("displayArea"); 
     textArea.innerHTML = titleString;

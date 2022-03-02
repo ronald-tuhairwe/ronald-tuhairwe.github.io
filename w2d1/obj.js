@@ -36,3 +36,7 @@ function findIDs ( arr){
    }
    return id.sort;
 }
+
+const a = {name: "John", age: 10};
+const b = {name: "John", age: 10};
+console.log(a === b);
