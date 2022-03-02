@@ -46,7 +46,7 @@ describe("library", function () {
 
     it("add book", function () {
         const newBook = {title: "My New Book", author: "Me Too", libraryID: 1144};
-        //ids.push(1144);
+        ids.unshift(1144);
         assert.deepEqual(addBook("My New Book",  "Me Too",  1144), newBook);
         assert.deepEqual(findIDs(), ids);
     });

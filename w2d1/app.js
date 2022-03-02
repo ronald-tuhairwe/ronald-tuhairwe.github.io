@@ -120,7 +120,7 @@ function findIDs() {
     for( let elem of library){
         ids.push(elem.libraryID);
     }
-    ids.sort();
+   ids.sort();
     return ids;
 }
 

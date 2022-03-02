@@ -2,41 +2,18 @@
 
  /* eslint-disable*/;
 
- const libraryBooks = [];
+  const person ={age: 34, name: "ronnie", type: "black"};
+ console.log(Object.values(person));
+ console.log(Object.entries(person));
 
- function addBook( title, author, libraryID) {
+ for (const x in person) {
      
-
+    console.log(person);     
+     
  }
 
+ const arr = ["b","a", "C"];
 
- function findTitles ( arr){
-     const tit =[];
-    for( let elem of arr){
-        tit.push(elem.title)
-    }
-    return tit.sort;
- }
+arr.sort();
 
-
- function findAuthors ( arr){
-    const auth =[];
-   for( let elem of arr){
-       tit.push(elem.title)
-   }
-   return auth.sort;
-}
-
-
-
-function findIDs ( arr){
-    const id =[];
-   for( let elem of arr){
-       id.push(elem.title)
-   }
-   return id.sort;
-}
-
-const a = {name: "John", age: 10};
-const b = {name: "John", age: 10};
-console.log(a === b);
+console.log(arr);
