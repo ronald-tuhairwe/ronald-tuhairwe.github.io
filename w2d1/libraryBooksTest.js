@@ -1,11 +1,11 @@
 "use strict";
 /*  comment out the exports when running in the browser */
-// const assert = require("assert");  //always need this with node
-// const myExports = require("./app.js");  //with node need the name of your file with your functions here
-// const findTitles = myExports.findTitles;  //do this for all of the functions used in the Mocha tests
-// const findAuthors = myExports.findAuthors;
-// const findIDs = myExports.findIds;
-// const addBook = myExports.addBook;
+const assert = require("assert");  //always need this with node
+const myExports = require("./app.js");  //with node need the name of your file with your functions here
+const findTitles = myExports.findTitles;  //do this for all of the functions used in the Mocha tests
+const findAuthors = myExports.findAuthors;
+const findIDs = myExports.findIDs;
+const addBook = myExports.addBook;
 
 /* global assert findTitles findAuthors findIDs addBook */
 /*
@@ -46,7 +46,7 @@ describe("library", function () {
 
     it("add book", function () {
         const newBook = {title: "My New Book", author: "Me Too", libraryID: 1144};
-        ids.push(1144);
+        //ids.push(1144);
         assert.deepEqual(addBook("My New Book",  "Me Too",  1144), newBook);
         assert.deepEqual(findIDs(), ids);
     });

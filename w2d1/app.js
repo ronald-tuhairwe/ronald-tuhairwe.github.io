@@ -1,7 +1,7 @@
 "use strict";
-
+/* eslint-disable*/
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-//module.exports = {findTitles, findAuthors, findIds, addBook }; //add all of your function names here that you need for the node mocha tests
+module.exports = {findTitles, findAuthors, findIDs, addBook }; //add all of your function names here that you need for the node mocha tests
 
 
 let library = [
@@ -52,7 +52,7 @@ function showTitles() {
  function showIds() {
 
 
-    const ids = findIds();
+    const ids = findIDs();
 
     ids.sort();
     const idsString = ids.join("\n");
@@ -73,6 +73,7 @@ function findTitles() {
     for( let elem of library){
         titles.push(elem.title);
     }
+   titles.sort();
     return titles;
 }
 
@@ -80,17 +81,19 @@ function findTitles() {
  * @returns {undefined} no return
  * Event handler for Add book button.  Creates and adds book to the library
  */
-function addBook(){
-    const title = document.getElementById("title").value; //retrieves the book title from the title textbox
-    const author = document.getElementById("author").value;
-    const libraryID = document.getElementById("libids").value;
-    //finish the implementation -- get the author, create a book object, and add to the library array
+function addBook1(title, author, libraryID){
+    title = document.getElementById("title").value; //retrieves the book title from the title textbox
+    author = document.getElementById("author").value;
+   libraryID = document.getElementById("libids").value;
+   //finish the implementation -- get the author, create a book object, and add to the library array
 
-    let book = {title, author, libraryID };
-    library.push( book);
-    
-    return library;
+   let book = {title, author, libraryID };
+   library.push( book);
+   
+   return library;
 }
+
+
 
 
 /**
@@ -103,7 +106,7 @@ function findAuthors() {
     for( let elem of library){
         authors.push(elem.author);
     }
-    
+   authors.sort();
     return authors;
 }
 
@@ -111,15 +114,25 @@ function findAuthors() {
  * 
  * @return {object} array holding all ids as elements
  */
-function findIds() {
+function findIDs() {
     let ids = [];
-   
+    
     for( let elem of library){
         ids.push(elem.libraryID);
     }
-    
+    ids.sort();
     return ids;
 }
+
+function addBook(title, author, libraryID){
+ 
+    let newBook = {title, author, libraryID };
+    
+    library.push(newBook);
+    
+   return newBook;
+ }
+ 
 
 
 /**
