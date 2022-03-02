@@ -1,5 +1,5 @@
 "use strict";
-
+//module.exports = { double, times100, myMap };
 
 
 //******************Qn.1*************/
@@ -79,7 +79,7 @@ console.log(stud1);
 
 
 
-module.exports = { double, times100, myMap };
+
 
 /* eslint-disable */
 
