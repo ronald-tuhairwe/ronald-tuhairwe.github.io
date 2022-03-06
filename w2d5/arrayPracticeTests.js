@@ -1,14 +1,14 @@
 "use strict";
 /* global assert doubleNums  doubleAges filterEven filterOver10 findEvenNum findEvenAge */
  //comment out the node specific code when going to the browser
-const assert = require("assert");  //always need this with node
-const myExports = require("./arrayPractice.js");  //with node need the name of your file with your functions here
-const doubleNums = myExports.doubleNums;  //do this for all of the functions used in the Mocha tests
-const doubleAges = myExports.doubleAges;
-const filterEven = myExports.filterEven;
-const filterOver10 = myExports.filterOver10;
-const findEvenNum = myExports.findEvenNum;
-const findEvenAge = myExports.findEvenAge;  
+// const assert = require("assert");  //always need this with node
+// const myExports = require("./arrayPractice.js");  //with node need the name of your file with your functions here
+// const doubleNums = myExports.doubleNums;  //do this for all of the functions used in the Mocha tests
+// const doubleAges = myExports.doubleAges;
+// const filterEven = myExports.filterEven;
+// const filterOver10 = myExports.filterOver10;
+// const findEvenNum = myExports.findEvenNum;
+// const findEvenAge = myExports.findEvenAge;  
 
 
 let numArray;
