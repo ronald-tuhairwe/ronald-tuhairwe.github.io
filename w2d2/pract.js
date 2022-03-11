@@ -35,13 +35,52 @@ let arr2=players.map(x =>  x.points.reduce( (a,b) => a+b),0);
      ;
 console.log(x.add()); 
 
+var numbersObject = {1:1, 2:4, 3:9};
+ 
+// var productArray = _.map(numbersObject, function(value, key) {
+//     return value * key;
+// });
 
+// do thus as soon as you can 
+/*let group = { 
+  title: "Our Group",
+   students: ["John", "Pete", "Alice"],
+    showList () { 
+      this.students.forEach  (function(student) {
+        console.log(this.title + ': ' + student) }); } };
+    
+    group.showList ();*/
 
+    // if u call the return innerFunc then that closure ans the increment work others counter will always be 0;
 
+    function makeCounter(){
+      let count=0;
+      function innerFunc(){
+        count +=1;
+        return count;
+      }
+      return innerFunc;
+    }
 
+    const c1 =makeCounter();
+    const c2 =makeCounter();
+     c2();
+     c2(); 
+     c2();
+     
+     console.log(c2);
+ 
 
+     // remove of duplicates
+     let arr= [1,2,5,2,8,2,5]
+     let arr2= arr.filter((item, index) => arr.indexOf(item) ===index);
+     console.log(arr2);
+      const me={
+        first:"ronnie",
+        last: "tuha",
+        getFullName: function (){ console.log(me.first +" "+ me.last) }
 
-
-
-
-
+      }
+     // ;
+ 
+     // setTimeout(me.getFullName,3000)
