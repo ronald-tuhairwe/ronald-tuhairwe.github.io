@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable*/
 
 /* exports at end of file since exporting an object, which can only be referenced 
 after definition 
@@ -42,7 +43,9 @@ quiz.key = [{ qid: 1, ans: "b" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }];
  * @returns {number} difference of the identifiers
  */
 function answerComparator(ans1, ans2) {
-//IMPLEMENT THIS
+
+ return ans1===ans2 ? 1:0;
+   
 }
 
 /**
@@ -54,7 +57,16 @@ function answerComparator(ans1, ans2) {
  * compare them against key and add up matches
  */
 quiz.scoreStudent = function (sid) {
-//IMPLEMENT THIS
+
+let scores= quiz.students.filter(num => num.sid===sid).map(num => num.answers.sort((a,b) =>a.qid-b.qid) );
+let score= scores[0];
+let count=0;
+for (let i = 0; i < score.length; i++) {
+  score[i].ans === quiz.key[i].ans ? count++ : count; 
+   
+}
+
+ return count;
 };
 
 /**
@@ -62,7 +74,12 @@ quiz.scoreStudent = function (sid) {
  * go through list of students and get score of each, then the average
  */
 quiz.getAverage = function(){
-//IMPLEMENT THIS
+let aver=0, sum=0;
+ for(let val of quiz.students ){
+   sum += quiz.scoreStudent(val.sid);
+ }
+ aver= sum/quiz.students.length;
+ return aver.toFixed(3);
 
 };
 
@@ -70,3 +87,4 @@ quiz.getAverage = function(){
 
 /* comment out when running in browser */
 module.exports = {quiz}; 
+console.log(quiz.getAverage());
