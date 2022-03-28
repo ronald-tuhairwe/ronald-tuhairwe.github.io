@@ -58,7 +58,8 @@ function answerComparator(ans1, ans2) {
  */
 quiz.scoreStudent = function (sid) {
 
-let scores= quiz.students.filter(num => num.sid===sid).map(num => num.answers.sort((a,b) =>a.qid-b.qid) );
+let scores= quiz.students.filter(num => num.sid===sid).
+    map(num => num.answers.sort((a,b) =>a.qid-b.qid) );
 let score= scores[0];
 let count=0;
 for (let i = 0; i < score.length; i++) {
