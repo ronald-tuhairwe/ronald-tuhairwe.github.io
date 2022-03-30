@@ -1,5 +1,5 @@
  body{
-background-color:  #595059fb
+background-color:  #535059fd
  }
 
  h1 {
@@ -12,7 +12,7 @@ background-color:  #595059fb
      color:palegreen;
      font-family: 'Lucida Sans';
      font-size: 10px;
-     background-color:rgba(135, 246, 250, 0.342);
+     background-color:rgba(135, 246, 250, 0.664);
      padding: 8px;
      padding-left: 4px
  }
