@@ -1,17 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "mystyle.css">
+     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
+    <!--  *******the Output********* -->
+
     <p>Input</p>
     <input type="text" id="ron">
     <P>Output </P>
     <textarea id="textarea"></textarea><br>
     <button onclick="app()">Click to add</button>
+
+
+    <!--  ******* Calculator ********* -->
+
+    <p>First value</p>
+    <input  type="text" id="a" value="">
+
+    <p>Second Value</p>
+
+    <input type="text" id="b" value="">
+
+    <p>Operations</p>
+    <button onclick="sum()">+</button> <button onclick="minus()">-</button> <button onclick="mult()">*</button>
+    
+    <p>Results</p>
+    <p id="result"></p>
+
+ <!--  ******* Inventory ********* -->
+
+ <p><b>Inventory<b></b></p>
+<label>Item Name:</label><br>
+<input type="text" id="name">
+<p>Item Category:</p>
+<input type="text" id="category">
+<p>Quantity:</p><br>
+<input type="text" id="quantity"> <br><br>
+<button onclick="add()" id="addd">Add</button>
+<br><br>
+
+<table>
+<tr>
+    <td> Product Name</td>
+    <td> Category  </td>
+    <td> Quantity</td>
+</tr>
+
+
+</table>
+
 
     <script src="my.js"> </script>
 </body>
