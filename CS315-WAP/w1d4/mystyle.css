@@ -1,4 +1,10 @@
+div{
+    background-color: yellowgreen;
+    border-radius: 10px;
+}
+
 table{
+    margin-left: 100px;
 
 border-collapse: collapse;
 }
@@ -8,15 +14,25 @@ table td{
 }
 
 table tr:first-child{
+    
     background-color: blue;
     color: white;
 }
 table tr:nth-child(even){
     background-color: rgb(204, 203, 203)
 }
-#addd{
+button{
 
-    margin-left: 90px;
+    margin:aut;
     background-color: aquamarine;
     border-radius: 5px;
+}
+
+table tr:hover{
+    background-color: yellowgreen;
+}
+table,input,p,h,label,button{
+    margin-left: 10px;
+
+
 }

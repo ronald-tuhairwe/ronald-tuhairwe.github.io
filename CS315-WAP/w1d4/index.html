@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel ="stylesheet" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+  
+<body>
+    <div>
+    <p><b>Inventory<b></b></p>
+    <label>Item Name:</label><br>
+    <input type="text" id="name"><br><br>
+    <label>Item Category:</label><br>
+    <input type="text" id="category"><br><br>
+    <label>Quantity:</label><br>
+    <input type="text" id="quantity" > <br><br>
+    <label>Rating:</label><br>
+    <input type="text" id="rate"><br><br>
+    
+
+    <button onclick="add()" id="addd">Add</button>
+    <button  id="save">Save</button>
+    
+   
+    
+    <table>
+    <tr >
+        <td> Product Name</td>
+        <td> Category  </td>
+        <td> Quantity</td>
+        <td> Rating</td>
+        <td> Edit</td>
+        <td> Remove</td>
+    </tr>
+    
+    
+    </table>
+
+    <select id ="filter">
+        <option   >quantity</option>
+        <option >ratings</option>
+    </select>
+
+    <select id="sort">
+        <option>name</option>
+        <option>price</option>
+    </select>
+</div>
+    
+        <script src="my.js"> </script> 
+  
+</body>
+</html>

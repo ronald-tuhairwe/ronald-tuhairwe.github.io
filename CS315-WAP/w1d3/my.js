@@ -3,7 +3,7 @@
 /** ********** Output ************ */
 
 let word= document.getElementById("ron");
-
+ let butt= document.getElementById("btn");
 console.log(word);
 let word2= document.getElementById("textarea")
 console.log(word2);
@@ -13,6 +13,7 @@ function app(){
  word.value="";
     
 }
+butt.onclick= app;
 
 /** ********** Calculator ************ */
 let a= document.getElementById("a");
