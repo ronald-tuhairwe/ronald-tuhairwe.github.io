@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        p,select,option,button,label,b{
+            margin-left: 8px;
+            margin-top: 20px;
+            font-size:larger;
+            
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><b>Add Plant</b></p>
+    <label>Plant Name:</label>
+    <input type="text" id="enter" >
+    
+    <button id="add" onclick="add()">Add</button><br>
+<pre><label><b>Source            Destination </b> </label></pre>
+<select id="sec1" multiple>
+    <option>oasisi</option>
+  
+   
+
+</select>
+<button id="left" onclick="toleft()"><</button><button id="right" onclick="toright()">> </button>
+
+<select id="sec2" multiple>
+    <option>weed</option>
+    
+</select><br>
+
+<button id="sort" onclick="sort()">Sort</button>
+ 
+
+ <script>
+     let select1= document.getElementById("sec1");
+     let select2= document.getElementById("sec2");
+    let arr1=[], arr2=[];
+     
+function add(){
+    let enter=document.getElementById("enter");
+    let optn= document.createElement("option");
+       optn.innerHTML=enter.value;
+    
+    select1.append(optn);
+    
+    arr1.push(enter.value);
+    enter.value="";
+
+}
+
+
+
+    // the left key button
+    function toleft(){
+        let select2=document.getElementById("sec2");
+       
+        let index=select2.selectedIndex;
+        arr1.push(arr2[index]);
+        adarr1(select2.children[index].value);
+        arr2.splice(index,1);
+        
+    
+        select2.children[index].remove();
+
+    }
+
+    
+    // the right key button
+    function toright(){
+        let select1=document.getElementById("sec1");
+        
+        let index=select1.selectedIndex;
+        arr2.push(arr1[index]);
+        adarr2(select1.children[index].value);
+        arr1.splice(index,1);
+        
+        select1.children[index].remove();
+    }
+
+    //add from array2
+    function adarr1(item){
+
+    let optn= document.createElement("option");
+    optn.innerHTML=item;
+    select1.append(optn);
+    
+    }
+      //add from array1
+      function adarr2(item){
+
+let optn= document.createElement("option");
+optn.innerHTML=item;
+select2.append(optn);
+
+}
+
+//sortig the both lists
+function sort(){
+    select1.innerHTML="";
+   select2.innerHTML="";
+   let sortArr1=arr1.sort();
+   let sortArr2=arr2.sort();
+
+for(let item of sortArr1){
+    adarr1(item);
+}
+
+
+for(let item of sortArr2){
+    adarr2(item);
+}
+
+}
+ </script>   
+    
+
+   
+</body>
+</html>

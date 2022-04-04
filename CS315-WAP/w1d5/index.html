@@ -1,28 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="mystyle.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <p>My Radio selection</p>
-<form>
-    <input type="radio" value="A" name="a">A
-    <input type="radio" value="B" name="b">B
-    <input type="radio" value="B" name="c">C<br>
-    <input type="submit" value="submit">
+  
+<p>Inventory</p>
+<p>Item Name</p>
+<input type="text" class="my">
+<p>Item Category</p>
+<input type="text" class="my">
+<p>Quantity</p><br>
+<input type="text" class="my">
+<p>Rating</p><br>
+<input type="text" class="my"><br>
 
-</form>
 
-<textarea id="textArea"></textarea>
-<script>
-document.getElementsByTagName("input[submit]").addEventListener("click",display);
-function display(){
-    alert("yes clicked")
-}
-</script>
+<button id="add">add</button>
+<button onclick="save()"> save</button>
+
+<select  onchange="sorted()">
+<option>Sort By..</option>
+<option id="opt1">Name</option>
+<option>Quantity</option>
+</select>
+
+<select name="filter" onchange="handleFilter()">
+    <option>Filter By..</option>
+    <option>Quantity</option>
+    <option>Rating</option>
+    </select>
+    
+
+
+
+<!--the table-->
+<table>
+    <tr>
+<td>Product Name</td>
+<td>Category</td>
+<td>Quantity</td>
+<td>Rating</td>
+<td>Edit</td>
+<td>Remove</td>
+
+    </tr>
+</table>
+
+
+    <script src="myy.js">
+
+    </script>
 
 </body>
 </html>
