@@ -1,0 +1,13 @@
+p,button,input,select{
+    margin:10px ;
+}
+
+label {
+
+    width: 15%;
+    
+    display: inline-block;
+    
+    }
+    
+    

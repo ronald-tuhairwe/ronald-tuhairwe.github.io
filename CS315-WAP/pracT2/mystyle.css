@@ -1,0 +1,29 @@
+p,label,button{
+    margin:10px 5px 5px 5px;
+   height: 20px;
+}
+input[id="email"]{
+    margin:10px 95px 10px;
+    width: 200px;
+}
+input[id="name"]{
+    margin:10px 70px 10px;
+    width: 200px;
+}
+select[id="sel1"]{
+    margin:50px 60px 10px;
+    width: 100px
+}
+select[id="sel2"]{
+    margin:10px 50px 10px;
+    width:  280px;
+    height: 120px;
+}
+*{
+    font-size: 13px;
+}
+p[id="head"]{
+    font-size: 30px;
+    font-weight: bold;
+    width: auto
+}

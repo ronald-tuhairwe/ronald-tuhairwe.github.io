@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <style>
+label,ul+label{
+    margin: 1%;
+    display: inline-block;
+    padding: 5px;
+    font-size: larger;
+    font-weight: bold;
+
+}
+
+td{
+
+    border: 10px;
+    border:1px solid gainsboro;
+}
+
+li{
+    margin-left: 40px;
+}
+
+input,button{
+margin: 4px;
+border-radius: 3px;
+    
+}
+
+/* ************ Qn.10********* */
+table>:nth-child(1),table>:nth-child(2),table>:nth-child(3){
+    border: 2px;
+    background-color: blue;
+
+}
+
+
+/* **********   Qn.9 *************/
+a:link{
+    color: blue
+}
+
+
+    </style>
+
+ 
+    
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <P> <b>Sites</b></P>
+
+    <input type="text" id="name" placeholder="Enter Site Name" > <input type="text" id="address"  placeholder="Enter Address">
+     <input type="text" id="keyword"  placeholder="Enter keywords"> 
+     <button id="add" onclick="add()">Add</button><br>
+     <P id="owaye"></P>
+
+     
+     <label>Add To</label> 
+     <input id="one" type="checkbox" onclick="createtable()"><b>Table</b>
+     <input  id="two" type="checkbox" onclick="createlist()"><b>List</b>
+
+     <ul id="list">   </ul>
+     <table id="table" style="display:'';"> </table>
+
+
+
+<script>
+
+let nameEle=document.getElementById("name");
+let addressEle=document.getElementById("address");
+let keyEle=document.getElementById("keyword");
+let chektable=document.getElementById("one");
+let cheklist=document.getElementById("two");
+
+let myArray=[];
+
+
+
+// Qn#2 ****************** the addbtn functionality*******
+
+function add(){
+
+// Qn#3 ***************
+ let warn=document.getElementById("owaye");
+ warn.style.color="red";
+
+if(nameEle.value==""){
+
+          warn.innerHTML="please Enter Site name "
+            nameEle.style.borderColor ="red";
+      
+}else if(addressEle.value==""){
+
+    warn.innerHTML="*Please Enter Address *"
+    addressEle.style.borderColor ="red";
+
+}else if(keyEle.value==""){
+
+    warn.innerHTML="*Please Enter Keywords*"
+    keyEle.style.borderColor ="red";
+}else{    warn.innerHTML="";
+          nameEle.style.borderColor ="";
+          keyEle.style.borderColor ="";
+          addressEle.style.borderColor ="";  }
+
+// putting the object i th array
+let obj={
+    name:nameEle.value,
+    key:keyEle.value
+}
+
+myArray.push(obj)
+nameEle.value="";
+keyEle.value="";
+addressEle.value="";
+
+}
+
+
+//****************************** Qn#4***********************************
+
+//********************** creating the table***************
+
+
+function createtable(){ 
+
+    let table= document.getElementById("table");
+    let row1=document.createElement("tr");
+  
+
+    row1.innerHTML="<tr>"+ 'Site Names' +"</td><td>"+'Keywords'+"</tr>";
+   table.append(row1);
+
+    let sortedArray=myArray.sort( (a,b)=> a.name > b.name? 1:-1);
+
+
+console.log(sortedArray)
+for(let item of sortedArray){
+
+    let row=document.createElement("tr");
+   
+
+    row.innerHTML="<td><a href=''>"+ item.name +"</a></td><td>"+item.key+"</td>";
+    table.append(row);
+
+
+}
+
+let rembtn= document.createElement("button");
+    rembtn.innerHTML="Remove Site";
+    table.after(rembtn);
+    rembtn.onclick=removed;
+
+}
+
+
+
+//*******************creating the list**********************
+
+function createlist(){
+
+    let ul=document.getElementById("list");
+
+
+// *************Qn#7************
+    let sortedArray=myArray.sort( (a,b)=> a.name > b.name? 1:-1);
+
+    for(let item1 of sortedArray){
+        let head=document.createElement("label");
+            head.innerHTML="<a href=''>" +item1.name+ "</a>";
+            ul.appendChild(head);
+
+// spliting the keywords
+
+    let array=item1.key.split(",");
+
+    for(let item of array){
+        let li=document.createElement("li");
+        li.innerHTML=item; 
+        ul.appendChild(li);
+    }
+    
+}
+    
+}
+
+
+    // Qn.8 **********craeting the remove button ***
+    
+   
+
+     function removed(){
+
+        let name=prompt("Enter the name to be removed");
+
+
+
+
+//**********removing from the table****
+// to get the array of the object names only and sorted;
+let sortedArray=myArray.sort().map(item =>item.name);
+         let index= sortedArray.indexOf(name);
+       
+
+
+//  Qn9 *********amazon***** (before its removed since the question doesnt say remove)
+if(name=="amazon"){
+    let frst=table.children[index+1];
+    frst.children[0].style.color="green";
+    frst.children[2].style.color="blue";
+}
+
+
+
+
+         table.children[index+1].remove()   // + 1 to exclude the heading;
+         sortedArray.splice(index,1);
+         
+ 
+         // Removing fromm lis****        
+/*removing from the list(delet all list and construct a new one with spliced 
+    sorted array since it has only required elements easier thatway)*/
+ 
+
+ //since it was also sorted
+
+let ul=document.getElementById("list");
+ul.innerHTML="";
+myArray.splice(index,1);
+createlist();
+     }
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="head">You Job Application</p> 
+    <label>Full Name </label>
+    
+    <input type="text" id="name"><br>
+    <label>Email   </label>
+    <input type="text" id="email"><br>
+    <label>Select Roles</label>
+    
+    
+    <select id="sel1">
+    <option>Software intern</option>
+    <option>QA Engineer</option>
+    <option>Software Devoloper</option>
+    </select> 
+    
+    <P>Skills sets</P>
+    <label>(Select all that apply)</label>
+    <input type="checkbox" id="java"> java
+    <input type="checkbox" id="javascript">Javascript<br>
+    
+    <label>Specific Skills</label>
+    
+    <select id="sel2" multiple>
+    
+      <optgroup label="Java">
+        <option>J2EE</option>
+        <option>Spring</option>
+        <option>Hibernate</option>
+    </optgroup>
+          
+    <optgroup label="Javascript">
+        <option>ReatJS</option>
+        <option>AngularJS</option>
+    </optgroup>
+    
+        </select> <br>
+    
+        <button id="submit">Submit</button>
+
+        <script>
+let textArea=document.createElement("textArea");
+textArea.innerHTML="";
+let name=document.getElementById("name");
+let email=document.getElementById("email");
+
+let select1=document.getElementById("sel1");
+let select2=document.getElementById("sel2");
+let role=select1.children.selectedIndex.value
+
+select2.onclick
+
+        </script>
+    
+    
+
+</body>
+</html>

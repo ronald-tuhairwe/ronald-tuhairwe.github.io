@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="sytle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <P id="head">Enrollment</P>
+    <label>Name</label> <input type="text" id="name"><br>
+    <label>Select Country</label>
+    <select id="country" onchange="hide()">
+        <option>USA</option>
+        <option>Others</option>
+    </select><br>
+        
+        <label  id="my">Select State</label>
+        <select id="state">
+            <option> </option>
+            <option>Alabama</option>
+            <option>Alaska</option>
+            <option>Calfonia</option>
+        </select><br>
+
+        <label>ZipCode</label>
+        <input type="text" id="zip"><br>
+        <button id="submit" onclick=" done()">Submit</button>
+
+        <script>
+let nameEle=document.getElementById("name")
+let countryEle= document.getElementById("country")
+let stateEle=document.getElementById("state");
+let zipEle=document.getElementById("zip");
+
+
+
+
+
+function hide(){
+    let countryindex= countryEle.selectedIndex;
+let selectedc=countryEle.children[countryindex].value
+
+    if(selectedc =="Others"){
+document.getElementById("my").style.display = "none";
+document.getElementById("state").style.display = "none";
+}else{
+    document.getElementById("my").style.display = "";
+document.getElementById("state").style.display = "";
+
+}
+}
+
+
+function done(){
+  let name=nameEle.value;
+  document.getElementById("name").outerHTML="<label >"+name+"</label>";
+
+
+let stateindex=stateEle.selectedIndex;
+let selected=stateEle.children[stateindex].value
+stateEle.outerHTML="<label >"+selected+"</label>";
+
+let countryindex= countryEle.selectedIndex;
+let selectedc=countryEle.children[countryindex].value
+countryEle.outerHTML="<label >"+selectedc+"</label>";
+
+let zipcode= zipEle.value;
+document.getElementById("zip").outerHTML="<label >"+zipcode+"</label>";
+
+document.getElementById("submit").outerHTML="<button>"+'Done'+"</button>";
+
+
+}
+
+
+
+
+
+        </script>
+
+</body>
+</html>
