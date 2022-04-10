@@ -1,0 +1,123 @@
+
+/***************** Qn one***********/
+#one {
+  margin: 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-bottom: solid 1px;
+  border-left: solid 2px;
+}
+
+.u1 {
+  margin: 0.8%;
+  background-color: aquamarine;
+}
+
+#thrd {
+  display: flex;
+margin:2%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+p,
+h1 {
+  margin: 2%;
+}
+#ron{
+  margin-bottom: 1%;
+  margin-top: 2%;
+  width: 90%;
+}
+
+
+/***************** Qn two***********/
+
+#two{
+  padding: 2%;
+background-color: gainsboro;
+margin:10%;
+}
+
+#btn1{
+ 
+  margin: 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: rgb(39, 37, 37);
+ 
+  box-shadow: 8px 4px 6px #060606b3
+}
+
+
+#btn2{
+ 
+  margin:  10% 5% 10% 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: rgb(39, 37, 37);
+  box-shadow: 8px 4px 6px #060606b3;
+}
+
+
+
+
+
+#btn3{
+  
+  margin: 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: rgb(39, 37, 37);
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 8px 4px 6px #060606b3;
+}
+
+#nav li{
+  display: inline-block;
+  margin:2px;
+  color: white;
+}
+
+#two button{
+  margin:15px;
+  border-radius: 8px;
+  background-color:darkcyan; 
+}
+
+
+
+
+
+h2{
+    color: white;
+    margin: 8%;
+   
+}
+
+/* ********photos***************/
+
+
+#photos {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  margin-top: 50px;
+}
+#photos div {
+  height: 200px;
+  flex-grow: 1;
+}
+
+#photos img {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}

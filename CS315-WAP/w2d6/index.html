@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <style>
+
+    /***************** Qn one***********/
+#one {
+  margin: 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  border-bottom: solid 1px;
+  border-left: solid 2px;
+}
+
+.u1 {
+  margin: 0.8%;
+  background-color: aquamarine;
+}
+
+#thrd {
+  display: flex;
+margin:2%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+p,
+h1 {
+  margin: 2%;
+}
+#ron{
+  margin-bottom: 1%;
+  margin-top: 2%;
+  width: 90%;
+}
+
+
+/***************** Qn two***********/
+
+#two{
+  padding: 2%;
+background-color: gainsboro;
+margin:10%;
+}
+
+#btn1{
+ 
+  margin: 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: rgb(39, 37, 37);
+ 
+  box-shadow: 8px 4px 6px #060606b3
+}
+
+
+#btn2{
+ 
+  margin:  10% 5% 10% 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: rgb(39, 37, 37);
+  box-shadow: 8px 4px 6px #060606b3;
+}
+
+
+
+
+
+#btn3{
+  
+  margin: 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: rgb(39, 37, 37);
+  display: flex;
+  justify-content: flex-end;
+  box-shadow: 8px 4px 6px #060606b3;
+}
+
+#nav li{
+  display: inline-block;
+  margin:2px;
+  color: white;
+}
+
+#two button{
+  margin:15px;
+  border-radius: 8px;
+  background-color:darkcyan; 
+}
+
+
+
+
+
+h2{
+    color: white;
+    margin: 8%;
+   
+}
+
+/* ********photos***************/
+
+
+#photos {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  margin-top: 50px;
+}
+#photos div {
+  height: 200px;
+  flex-grow: 1;
+}
+
+#photos img {
+  max-height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+  </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--the  first question -->
+    <div id="one">
+      <div class="u1">
+        <h1>First Article</h1>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged.
+        </p>
+      </div>
+
+      <div class="u1">
+        <h1>Second Article</h1>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s.
+        </p>
+
+        <p>
+          when an unknown printer took a galley of type and scrambled it to make
+          a type specimen book.It has survived not only five centuries, but also
+          the leap into electronic typesetting, remaining essentially unchanged.
+        </p>
+      </div>
+
+      <div class="u1">
+        <div id="thrd">
+          <button>Smile</button>
+          <button>Laugh</button>
+          <button>Wink</button>
+          <button>Shrug</button>
+        </div>
+        <button id="ron" style="margin: 3%">Blush</button>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged.
+        </p>
+      </div>
+    </div>
+   
+
+    <!--**************Qn.two-->
+    <div id="two">
+      <div id="btn1">
+        <div>
+          <h2>LOGOBAKERY</h2>
+        </div>
+
+        <div id="nav">
+          <ul >
+            <li>Logbook</li>
+            <li>sign in</li>
+            <li>login</li>
+          </ul>
+        </div>
+
+        <div>
+          <button >Contact</button>
+        </div>
+      </div>
+
+      <div id="btn2" >
+        
+        <div id="nav" class="tar">
+          <ul >
+            <li>Logbook</li>
+            <li>sign in</li>
+            <li>login</li>
+          </ul>
+        </div>
+
+        <div class="tar">
+          <button >Contact</button>
+        </div>
+
+        <div>
+          <h2>LOGOBAKERY</h2>
+        </div>
+
+      </div>
+
+      <div id="btn3">
+        <div>
+          <h2>LOGOBAKERY</h2>
+        </div>
+
+        <div id="nav" >
+          <ul >
+            <li>Logbook</li>
+            <li>sign in</li>
+            <li>login</li>
+          </ul>
+        </div>
+
+        <div class="tar">
+          <button >Contact</button>
+        </div>
+      </div>
+
+    
+    </div>
+
+
+    <!-- *********************Phot shop*********************** -->
+
+
+    <div id="photos">
+      <div><img src="../images/img1.jpg"></div> 
+       <div><img src="../images/img2.jpg"></div>
+       <div><img src="../images/img3.jpg"></div>
+       <div><img src="../images/img4.jpg"></div>
+       <div><img src="../images/img5.jpg"></div>
+       <div><img src="../images/img6.jpg"></div>
+       <div><img src="../images/img7.jpg"></div>
+       <div><img src="../images/img8.jpg"></div>
+       <div><img src="../images/img9.jpg"></div>
+       <div><img src="../images/img10.jpg"></div>
+       <div><img src="../images/img11.jpg"></div>
+       <div><img src="../images/img12.jpg"></div>
+       <div><img src="../images/happy.jpg"></div>     
+   </div>
+
+  </body>
+</html>
