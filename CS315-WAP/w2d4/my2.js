@@ -136,15 +136,17 @@ function printNam(node) {
 
 function ntarget(tree,tar){
 
-  if(tree.value ==tar){
-    console.log("true");
-  }else if(tree.descendents.length > 0){
-
-for(let child of tree.descendents){
-  ntarget(child,tar);
-} 
-  }else
-  console.log("false");
+if(tree.value === tar){
+   return true;
+}
+ if(tree.descendents !==[]){
+  for(let x of tree.descendents){
+    if(ntarget(x,tar)) { 
+    return true;}
+}  
+ 
+}
+return false;
 }
 
-ntarget(abe,"Lisa");
+console.log(ntarget(abe,"Lisa"));
