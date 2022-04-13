@@ -149,4 +149,56 @@ if(tree.value === tar){
 return false;
 }
 
-console.log(ntarget(abe,"Lisa"));
+//console.log(ntarget(abe,"Lisa"));
+
+//**********qn4**** */Abe, Homer, Bart, Lisa, Maggie
+
+function linklist(value){
+  this.value=value;
+  this.next=null;
+
+}
+let Maggie=new linklist(maggie);
+let Lisa=new linklist(lisa)
+Lisa.next=Maggie;
+let Bart=new linklist(bart);
+Bart.next=Lisa;
+let Homer=new linklist(homer);
+Homer.next=Bart;
+let Abe=new linklist(abe);
+Abe.next=Homer;
+
+  
+
+//console.log(Abe.value);
+
+//**************Qn4******* */
+
+function findListNode(list, tar){
+
+}
+
+
+// Qn 6*********
+
+function treeCollector(tree){
+let arr=[];
+
+if(tree.descendents !==[]){
+  arr.push(tree.value);
+  for(let child of tree.descendents){
+    treeCollector(child);
+  }
+ 
+
+}
+return arr;
+
+}
+
+console.log(treeCollector(abe));
+
+
+
+
+
