@@ -174,26 +174,46 @@ Abe.next=Homer;
 
 //**************Qn4******* */
 
-function findListNode(list, tar){
+
+function findTarget(node, target) {
+    if (Array.isArray(node.children)) {
+        for (let key in node.children) {
+            findTarget(key)
+        }
+        if(node.name == target){
+            return true;
+        }else{
+            return false;
+        }   
+    } else {
+        if(node.name == target){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
 
 }
+findTarget(Abe, "Lisa");
 
 
 // Qn 6*********
 
-function treeCollector(tree){
-let arr=[];
-
-if(tree.descendents !==[]){
-  arr.push(tree.value);
-  for(let child of tree.descendents){
-    treeCollector(child);
+function ListNode(node) {
+  let obj = {};
+  if (node.children == null) {
+      
+      obj.next = { name: node.name, next: null };
+} else {
+  obj.name = node.name;
+  obj.next = node.next
+  for (let element of node.children) {
+      ListNode(element);
+      
   }
- 
-
 }
-return arr;
-
+return obj;
 }
 
 console.log(treeCollector(abe));

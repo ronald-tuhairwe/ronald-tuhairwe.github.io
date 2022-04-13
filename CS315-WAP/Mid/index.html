@@ -2,243 +2,328 @@
 <html lang="en">
 <head>
     
+    <title>Midterm</title>
     <style>
-label,ul+label{
-    margin: 1%;
-    display: inline-block;
-    padding: 5px;
-    font-size: larger;
-    font-weight: bold;
+      #validation  {
+            color: red;
+        }
+        span{
+            color: red;
+            
+        }
 
-}
+        table{
+            width: 400px;
+             
+        }
+        td{
+            border: 1px solid gray;
+        }
 
-td{
+        /* 10. Change the background color of 3 row to blue ( use selectors other than id /class) */
 
-    border: 10px;
-    border:1px solid gainsboro;
-}
+        tr:nth-child(3){
+            background-color: blue !important;
+            color:white;
+        }
+       tbody tr:nth-child(odd){
+            background-color: rgb(247, 244, 244);
+            color:white
+        }
 
-li{
-    margin-left: 40px;
-}
+        tr:nth-child(3) a{
+            color:white
+        }
+        thead{
+            background-color:green;
+            color: white;
+            font-size: 20px;
 
-input,button{
-margin: 4px;
-border-radius: 3px;
-    
-}
-
-/* ************ Qn.10********* */
-table>:nth-child(1),table>:nth-child(2),table>:nth-child(3){
-    border: 2px;
-    background-color: blue;
-
-}
-
-
-/* **********   Qn.9 *************/
-a:link{
-    color: blue
-}
-
-
+        }
+        thead td{
+            padding: 10px;
+        }
+    input{
+        font-size: 1.5em;
+        margin-right: 10px;
+    }
+    button{
+        font-weight: bolder;
+        padding: 10px 20px;
+        font-size: 1em;
+        margin: 40px;
+    }
+   #listDiv a{
+        font-size: 1.4em;
+        font-weight: bolder;
+   }
+   #tableDiv tbody {
+        color:black;
+        font-weight: bolder;
+        padding: 20px;
+   }
+   #tableDiv tbody td{
+    color:black;
+        font-size: 1.4em;
+        font-weight: bolder;
+        padding: 20px;
+   }
+   
     </style>
-
- 
-    
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
+
+ <!-- 1. Design the above HTML page (Fig 1) -->
 <body>
-    <P> <b>Sites</b></P>
+    <div><input type="text"  placeholder="Enter Site name" id="name">
+    <input type="text" placeholder="Enter Address" id="address">
+    <input type="text" placeholder="Enter keyword" id="keyword">
+    <button id="addbtn">Add</button></div>
+    <div id="validation"></div>
+    <div id="optionDiv">
+        <label>Add to:</label>
+        <input type="checkbox" name="check1" value="table"/>Table
+        <input type="checkbox" name="check2" value="list" />List
+    </div>
 
-    <input type="text" id="name" placeholder="Enter Site Name" > <input type="text" id="address"  placeholder="Enter Address">
-     <input type="text" id="keyword"  placeholder="Enter keywords"> 
-     <button id="add" onclick="add()">Add</button><br>
-     <P id="owaye"></P>
+    <h2 id="listtitle">List</h2>
+    <div id="listDiv"></div>
 
-     
-     <label>Add To</label> 
-     <input id="one" type="checkbox" onclick="createtable()"><b>Table</b>
-     <input  id="two" type="checkbox" onclick="createlist()"><b>List</b>
-
-     <ul id="list">   </ul>
-     <table id="table" style="display:'';"> </table>
-
-
-
+    <br><br>
+    <div id="tableDiv">
+        <table id="dataTable">
+            <h2>Table</h2>
+            <thead>
+                <tr>
+                    <td id="nameid">Site Name</td>
+                    <td>keywords</td>
+                </tr>
+                
+            </thead>
+            <tbody id="Tbody">
+                
+            </tbody>
+        </table>
+    </div>
+<button id="remove">Remove Site</button>
 <script>
 
-let nameEle=document.getElementById("name");
-let addressEle=document.getElementById("address");
-let keyEle=document.getElementById("keyword");
-let chektable=document.getElementById("one");
-let cheklist=document.getElementById("two");
+    let nameField = document.getElementById("name");
+    let addressField = document.getElementById("address");
+    let keywordField = document.getElementById("keyword");
+    let addBtn = document.getElementById("addbtn");
+    let tbody = document.getElementById("Tbody");
+    let namesort = document.getElementById("nameid");
+    let optionDiv = document.getElementById("optionDiv");
+    let listDiv = document.getElementById("listDiv");
+    let tableDiv = document.getElementById("tableDiv");
+    let warningDiv = document.getElementById("validation");
+    let remove = document.getElementById("remove");
+    let listtitle = document.getElementById("listtitle")
+    
 
-let myArray=[];
 
+    const ascending = (a, b) => (a.siteName > b.siteName) ? 1 : -1;
+    const descending = (a, b) => (a.siteName > b.siteName) ? -1 : 1;
 
+    optionDiv.style.display = "none";
+    listDiv.style.display = "none";
+    tableDiv.style.display = "none";
+    remove.style.display = "none"; 
+    listtitle.style.display = "none";
+    
 
-// Qn#2 ****************** the addbtn functionality*******
+let tableArr =[];
+let listArr =[];
 
-function add(){
-
-// Qn#3 ***************
- let warn=document.getElementById("owaye");
- warn.style.color="red";
-
-if(nameEle.value==""){
-
-          warn.innerHTML="please Enter Site name "
-            nameEle.style.borderColor ="red";
-      
-}else if(addressEle.value==""){
-
-    warn.innerHTML="*Please Enter Address *"
-    addressEle.style.borderColor ="red";
-
-}else if(keyEle.value==""){
-
-    warn.innerHTML="*Please Enter Keywords*"
-    keyEle.style.borderColor ="red";
-}else{    warn.innerHTML="";
-          nameEle.style.borderColor ="";
-          keyEle.style.borderColor ="";
-          addressEle.style.borderColor ="";  }
-
-// putting the object i th array
-let obj={
-    name:nameEle.value,
-    key:keyEle.value
+window.onload = function(){
+   updateTable(tableArr);
+   updateList(listArr);
 }
 
-myArray.push(obj)
-nameEle.value="";
-keyEle.value="";
-addressEle.value="";
+// 9. If the site name is amazon , show the site link in green color and its keywords in blue color. ( use selectors other than id /class)
+function updateTable(arr){
+
+for (const elem of arr) {
+    let tr = document.createElement("tr");
+    if(elem.siteName === "amazon"){
+        tr.innerHTML = `<td><a target="_blank" style="color:green;text-decoration:none;" href=http://${elem.siteAddress}>${elem.siteName}</a></td><td style='color:blue;'>${elem.keyword}</td>`;
+        
+    }else{
+        tr.innerHTML = `<td><a href="${elem.siteAddress}">${elem.siteName}</a></td><td>${elem.keyword}</td>`;
+    }
+   
+   tbody.append(tr);
+}
+
+}
+function updateList(arr){
+    arr.sort(ascending);
+for (const elem of arr) {
+    let link = document.createElement("a");
+    link.href = elem.address;
+    link.innerHTML = elem.name
+    listDiv.append(link);
+
+    let ul = document.createElement("ul");
+   
+    for(let element of elem.keywords){
+        ul.innerHTML += `<li>${element}</li>`;
+    }
+   
+   listDiv.append(ul);
+        
+}
 
 }
 
-
-//****************************** Qn#4***********************************
-
-//********************** creating the table***************
+ let warningMessage = document.createElement("p");
+let asterix = document.createElement("span");
 
 
-function createtable(){ 
+// 2. Once User hits the add button, if the Name/address/keywords is empty
+addBtn.onclick = validationFunc;
 
-    let table= document.getElementById("table");
-    let row1=document.createElement("tr");
+    function validationFunc(){
+        
+        asterix.innerText = "*";
+        if(nameField.value ===""){  
+            nameField.style.borderColor = "red";
+            warningMessage.innerHTML = "Please Enter the site name";
+            nameField.before(asterix);
+            warningDiv.innerHTML = warningMessage.innerHTML;
+            return;
+
+        }else if(addressField.value ===""){
+            keywordField.style.borderColor = "";
+            nameField.style.borderColor ="black";
+            addressField.style.borderColor="red";
+            warningMessage.innerHTML = "Please Enter the address";
+            addressField.before(asterix);
+            warningDiv.innerHTML = warningMessage.innerHTML;
+            return;
+
+        }else if(keywordField.value ===""){
+            addressField.style.borderColor = "";
+            nameField.style.borderColor = "";
+            keywordField.style.borderColor="red";
+            warningMessage.innerHTML = "Please Enter a Keyword";
+            keywordField.before(asterix);
+            warningDiv.innerHTML = warningMessage.innerHTML;
+            return;
+        }else{
+            warningDiv.style.display="none";
+            asterix.style.display ="none";
+            keywordField.style.borderColor = "";
+            
+           addFunc();
+            
+        }
+       
+    }
+
+
+
+    
+    // 3. If User enters information and hits 'add' again, the validation message and the border should disappear.
+    function addFunc(){
+        optionDiv.style.display = "";
+        asterix.innerText = "";
+  
+ 
+    }
+
+  /*  4. Based on the User selection, add the Site to either List or Table or both. (Fig 4)
+Site should be added as a Link Element
+Note that inside the List, the keywords are added as each item in the list
+Add the sites in ascending order in both table and list */
+
+    let keys;
+    let OptionsTable = document.getElementsByName("check1")[0];
+    OptionsTable.onchange = checkedTableFunc;
+    function checkedTableFunc(){
+        if(OptionsTable.checked){
+        tableDiv.style.display = "";
+        remove.style.display = ""; 
+        tableArr.push({siteName:nameField.value, siteAddress:addressField.value, keyword:keywordField.value});
+        tbody.innerHTML = "";
+        tableArr.sort(ascending);
+       updateTable(tableArr);
+
+       setTimeout(function(){
+    nameField.value="";
+    addressField.value="";
+    keywordField.value="";
+    optionDiv.style.display = "none";
+    
+},5000);
+        }
+        
+       
+    }
+
+let OptionsList = document.getElementsByName("check2")[0];
+    OptionsList.onclick = checkedListFunc;
+    function checkedListFunc(){
+        if(OptionsList.checked){
+        listtitle.style.display = "";
+        listDiv.style.display = "";
+        keys = keywordField.value;
+        keyArr =keys.split(",");
+        listArr.push({name:nameField.value, address:addressField.value, keywords:keyArr});
+        listDiv.innerHTML = "";
+        updateList(listArr);
+
+        setTimeout(function(){
+    nameField.value="";
+    addressField.value="";
+    keywordField.value="";
+    optionDiv.style.display = "none";
+    },5000);
+        }
+    }
   
 
-    row1.innerHTML="<tr>"+ 'Site Names' +"</td><td>"+'Keywords'+"</tr>";
-   table.append(row1);
+/* Clicking the SiteName in the table(not list) should toggle the sort order, i.e. they should be sorted in
+ascending order if they are in descending order and vice versa. */
+    namesort.onclick = sortByName;
+    let newarr;
+    let type="ascending";
 
-    let sortedArray=myArray.sort( (a,b)=> a.name > b.name? 1:-1);
-
-
-console.log(sortedArray)
-for(let item of sortedArray){
-
-    let row=document.createElement("tr");
-   
-
-    row.innerHTML="<td><a href=''>"+ item.name +"</a></td><td>"+item.key+"</td>";
-    table.append(row);
-
-
-}
-
-let rembtn= document.createElement("button");
-    rembtn.innerHTML="Remove Site";
-    table.after(rembtn);
-    rembtn.onclick=removed;
-
-}
-
-
-
-//*******************creating the list**********************
-
-function createlist(){
-
-    let ul=document.getElementById("list");
-
-
-// *************Qn#7************
-    let sortedArray=myArray.sort( (a,b)=> a.name > b.name? 1:-1);
-
-    for(let item1 of sortedArray){
-        let head=document.createElement("label");
-            head.innerHTML="<a href=''>" +item1.name+ "</a>";
-            ul.appendChild(head);
-
-// spliting the keywords
-
-    let array=item1.key.split(",");
-
-    for(let item of array){
-        let li=document.createElement("li");
-        li.innerHTML=item; 
-        ul.appendChild(li);
-    }
-    
-}
-    
-}
-
-
-    // Qn.8 **********craeting the remove button ***
-    
-   
-
-     function removed(){
-
-        let name=prompt("Enter the name to be removed");
-
-
-
-
-//**********removing from the table****
-// to get the array of the object names only and sorted;
-let sortedArray=myArray.sort().map(item =>item.name);
-         let index= sortedArray.indexOf(name);
-       
-
-
-//  Qn9 *********amazon***** (before its removed since the question doesnt say remove)
-if(name=="amazon"){
-    let frst=table.children[index+1];
-    frst.children[0].style.color="green";
-    frst.children[2].style.color="blue";
-}
-
-
-
-
-         table.children[index+1].remove()   // + 1 to exclude the heading;
-         sortedArray.splice(index,1);
+    function sortByName(){
+    if(type ==="ascending"){
+        newarr = tableArr.sort(descending);
+        type = "descending";
+        tbody.innerHTML = "";
+        updateTable(newarr);  
+    }else{
+        newarr = tableArr.sort(ascending);
+        type="ascending";
+        tbody.innerHTML = "";
+        updateTable(newarr);  
+    } 
          
- 
-         // Removing fromm lis****        
-/*removing from the list(delet all list and construct a new one with spliced 
-    sorted array since it has only required elements easier thatway)*/
- 
+    }
 
- //since it was also sorted
 
-let ul=document.getElementById("list");
-ul.innerHTML="";
-myArray.splice(index,1);
-createlist();
-     }
+// 8. Remove Site should prompt the User for the Site Name, remove all matching sites.
+remove.onclick = removeItem;
+
+function removeItem(){
+    
+    promptItem = prompt("Enter a site name", "");
+    tableArr.forEach(function(element){
+        if(element.siteName === promptItem){
+            tableArr.splice(tableArr.indexOf(element),1);
+        }
+
+    });
+    tbody.innerHTML = "";
+    updateTable(tableArr); 
+    
+}
+
+
 
 </script>
-
-
-
 </body>
 </html>
