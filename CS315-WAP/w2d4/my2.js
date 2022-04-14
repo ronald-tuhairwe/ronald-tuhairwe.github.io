@@ -1,6 +1,6 @@
 /* eslint-disable*/
 
-// Qn.1*
+/*****************Qn 1********************************* */
 let node3 = {
   name: "p",
   value: "This is text in the a paragraph",
@@ -63,19 +63,7 @@ function printNode(node) {
 
 //printNode(node1);
 
-// Qn.2
-
-function Node(node) {
-  if (Array.isArray(node.children)) {
-    for (let x of node.children) {
-      return node.name + ":" + node.value + "\n" + Node(x); //recursion
-    }
-    // return (node.name + ":" + node.value);
-  } else {
-    return node.name + ":" + node.value;
-  }
-}
-//console.log(Node(node1));
+/*****************Qn 2********************************* */
 
 // using iteration ......
 
@@ -116,15 +104,14 @@ const maggie = new TreeNode("Maggie");
 abe.descendents.push(homer);
 homer.descendents.push(bart, lisa, maggie);
 
-// Qn1....
+/*****************Qn 1********************************* */
 
 function printNam(node) {
-  if (node.descendents.length==0) {
+  if (node.descendents.length == 0) {
     console.log(node.value);
   } else {
     console.log(node.value);
     for (let child of node.descendents) {
-     
       printNam(child);
     }
   }
@@ -132,93 +119,130 @@ function printNam(node) {
 
 //printNam(abe);
 
-//QN2
+/*****************Qn 2********************************* */
 
-function ntarget(tree,tar){
-
-if(tree.value === tar){
-   return true;
-}
- if(tree.descendents !==[]){
-  for(let x of tree.descendents){
-    if(ntarget(x,tar)) { 
-    return true;}
-}  
- 
-}
-return false;
-}
-
-//console.log(ntarget(abe,"Lisa"));
-
-//**********qn4**** */Abe, Homer, Bart, Lisa, Maggie
-
-function linklist(value){
-  this.value=value;
-  this.next=null;
-
-}
-let Maggie=new linklist(maggie);
-let Lisa=new linklist(lisa)
-Lisa.next=Maggie;
-let Bart=new linklist(bart);
-Bart.next=Lisa;
-let Homer=new linklist(homer);
-Homer.next=Bart;
-let Abe=new linklist(abe);
-Abe.next=Homer;
-
-  
-
-//console.log(Abe.value);
-
-//**************Qn4******* */
-
-
-function findTarget(node, target) {
-    if (Array.isArray(node.children)) {
-        for (let key in node.children) {
-            findTarget(key)
-        }
-        if(node.name == target){
-            return true;
-        }else{
-            return false;
-        }   
-    } else {
-        if(node.name == target){
-            return true;
-        }else{
-            return false;
-        }
-        
+function contains(tree, target) {
+  if (tree.name == target) {
+    return true;
+  } else if (Array.isArray(tree.children)) {
+    for (let element of tree.children) {
+      return contains(element, target);
     }
-
-}
-findTarget(Abe, "Lisa");
-
-
-// Qn 6*********
-
-function ListNode(node) {
-  let obj = {};
-  if (node.children == null) {
-      
-      obj.next = { name: node.name, next: null };
-} else {
-  obj.name = node.name;
-  obj.next = node.next
-  for (let element of node.children) {
-      ListNode(element);
-      
+  } else {
+    return false;
   }
 }
-return obj;
+//console.log(contains(Abe,fffr));
+
+/*****************Qn 3********************************* */
+function containingTree(tree, target) {
+  if (tree.name == target) {
+    return tree;
+  } else if (Array.isArray(tree.children)) {
+    let newTree = null;
+    for (let element of tree.children) {
+      if (containingTree(element, target)) {
+        newTree = containingTree(element, target);
+      }
+    }
+    return newTree;
+  }
+}
+// console.log(containingTree(Abe, "Lisa"));
+
+/*****************Qn 4********************************* */
+
+function ListNode(value, next) {
+  this.value = value;
+  this.next = next;
 }
 
-console.log(treeCollector(abe));
+let maggieNode = new ListNode("Maggie", null);
+let lisaNode = new ListNode("Lisa", maggieNode);
+let bartNode = new ListNode("Bart", lisaNode);
+let homerNode = new ListNode("Homer", bartNode);
+let abeNode = new ListNode("Abe", homerNode);
 
+/*****************Qn 5********************************* */
 
+function findListNode(list, name) {
+  if (list.value === name) {
+    return list;
+  }
+  if (list.next) {
+    let matchingNode = findListNode(list.next, name);
+    if (matchingNode) {
+      return matchingNode;
+    }
+  }
+  return null;
+}
+//console.log(findListNode(abeNode,"ronnieee"));
 
+/*****************Qn 6********************************* */
 
+function treeModifier(tree, modifierFunc) {
+  if (tree.children == null) {
+    modifierFunc(tree);
+  } else {
+    modifierFunc(tree);
+    for (let element of tree.children) {
+      treeModifier(element, modifierFunc);
+    }
+  }
+  return tree;
+}
 
+function allCaps(node) {
+  node.name = node.name.toUpperCase();
+  return node;
+}
+function addStars(node) {
+  node.name = "***" + node.name + "***";
+  return node;
+}
+function reverseNode(node) {
+  let newName = [];
+  let arrayName = node.name.split("");
+  for (let element of arrayName) {
+    newName.unshift(element);
+  }
+  node.name = newName.join("");
+  return node;
+}
+
+// console.log(treeModifier(Abe, reverseNode))
+
+/*****************Qn 7********************************* */
+
+let valuesArr = [];
+function treeCollector(tree) {
+  if (Array.isArray(tree.children)) {
+    valuesArr.push(tree.name);
+    for (let element of tree.children) {
+      treeCollector(element);
+    }
+  } else {
+    valuesArr.push(tree.name);
+  }
+  return valuesArr;
+}
+//console.log(treeCollector(Abe));
+
+function ListNode(value) {
+  this.name = value;
+}
+
+function generateList(root) {
+  if (root.children == null || root.children.length == 0)
+    return new ListNode(root.name);
+  let linkedList = new ListNode(root.name);
+  let list = linkedList;
+  for (let eachChild of root.children) {
+    list.next = generateList(eachChild);
+    list = list.next;
+  }
+  return linkedList;
+}
+
+console.log(JSON.stringify(generateList(Abe)));
