@@ -193,8 +193,8 @@ function sumTotal(company) {
 
 function allEmployeeNames(company) {
     let employees = [];
-    if (!company)
-        return employees;
+    // if (!company)
+    //     return employees;
 
     for (let key in company) {
         if (Array.isArray(company[key])) {
@@ -207,6 +207,7 @@ function allEmployeeNames(company) {
     return employees;
 }
 
+console.log( "this is mine  ", allEmployeeNames(company))
 
 
 /********************************************Linked list********************************************** */
