@@ -215,8 +215,9 @@ function reverseNode(node) {
 
 /*****************Qn 7********************************* */
 
-let valuesArr = [];
 function treeCollector(tree) {
+  
+let valuesArr = [];
   if (Array.isArray(tree.children)) {
     valuesArr.push(tree.name);
     for (let element of tree.children) {

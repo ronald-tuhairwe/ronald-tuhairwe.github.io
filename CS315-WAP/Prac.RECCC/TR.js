@@ -245,7 +245,7 @@ function TreeNode(value) {
         return linkedList;
    }
 
-  console.log(JSON.stringify(generateList(abe)))
+  console.log( '*********',(generateList(abe)))
 
   // let linkedList = generateList(abe);
 // let linkedList = {value:1,next:{value:2,next:{value:3,next:{value:4}}}}
